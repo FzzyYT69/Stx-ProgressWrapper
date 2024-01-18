@@ -51,7 +51,6 @@ for k=1, #Config.ProgressBarsSett do
     end)
 end
 
-if Config.lib ~= 'ox' then
     QBCore.Functions.CreateCallback("stx-prog:server:callback:getprog", function(source, cb)
         local src = source
         local pData = QBCore.Functions.GetPlayer(src)
@@ -64,7 +63,7 @@ if Config.lib ~= 'ox' then
             end
         end)
     end)
-end
+
 
 lib.callback.register('stx-prog:server:callback:getprog', function(source)
     local src = source
