@@ -13,7 +13,6 @@ end
 
 
 function StxProgress(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
-    if Config.lib ~= 'ox' then
         QBCore.Functions.TriggerCallback("stx-prog:server:callback:getprog", function(result)
             if result == nil then print('No Prog Found Yet') end
             local Player = QBCore.Functions.GetPlayerData()
@@ -27,21 +26,6 @@ function StxProgress(name, label, duration, useWhileDead, canCancel, disableCont
                 end
             end
         end)
-    else
-        lib.callback('stx-prog:server:callback:getprog', source, function(result)
-            if result == nil then print('No Prog Found Yet') end
-            local Player = QBCore.Functions.GetPlayerData()
-            local cidd = Player.citizenid
-            for _, v in pairs (result) do
-                for k=1, #Config.ProgressBarsSett do
-                    print('No Prog Found Yet')
-                    if v.progress == Config.ProgressBarsSett[k].id then
-                        Config.ProgressBarsSett[k].exportfunction(name, label, duration, useWhileDead, canCancel, disableControls, animation, prop, propTwo, onFinish, onCancel)
-                    end
-                end
-            end
-        end)
-    end
 end
 
 RegisterCommand('progsett', function()
