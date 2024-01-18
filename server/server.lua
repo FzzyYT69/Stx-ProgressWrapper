@@ -65,15 +65,3 @@ end
     end)
 
 
-lib.callback.register('stx-prog:server:callback:getprog', function(source)
-    local src = source
-    local pData = QBCore.Functions.GetPlayer(src)
-    local cid = pData.PlayerData.citizenid
-    MySQL.query('SELECT * FROM progressbar WHERE citizenid = ?', {cid}, function(result)
-        if result then
-            return result
-        else
-            return nil
-        end
-    end)
-end)
